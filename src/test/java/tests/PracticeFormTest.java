@@ -36,7 +36,7 @@ public class PracticeFormTest {
         String subjectResult = String.join(", ", subjects);
         String firstHobby = "Sports";
         String secondHobby = "Reading";
-        String picture ="qa_guru.png";
+        String picture = "qa_guru.png";
         String currentAddress = "Test currentAddress";
         String state = "Haryana";
         String city = "Karnal";
@@ -54,10 +54,10 @@ public class PracticeFormTest {
         $$("select.react-datepicker__month-select option").findBy(text(bMonth)).click();
         $$("div.react-datepicker__day").findBy(text(bDay)).click();
 
-        for (String subject : subjects
-        ) {
+        for (String subject : subjects) {
             $("#subjectsInput")
-                    .setValue(subject).pressEnter();
+                    .setValue(subject)
+                    .pressEnter();
         }
 
         $$("label[for*='hobbies-checkbox']").findBy(text(firstHobby)).click();
@@ -81,8 +81,5 @@ public class PracticeFormTest {
         $x("//td[text()='Picture']/following-sibling::td[1]").shouldHave(text(picture));
         $x("//td[text()='Address']/following-sibling::td[1]").shouldHave(text(currentAddress));
         $x("//td[text()='State and City']/following-sibling::td[1]").shouldHave(text(state + " " + city));
-
-        System.out.println("correctSubmitTest finish");
-
     }
 }
